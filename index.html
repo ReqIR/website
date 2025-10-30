@@ -11,6 +11,22 @@
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
     }
+    #cursorLight {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(88,166,255,0.25) 0%, rgba(0,0,0,0) 70%);
+  filter: blur(40px);
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s;
+  opacity: 0.8;
+  z-index: 0;
+}
+
 
     body {
       height: 100vh;
@@ -149,6 +165,7 @@
   </style>
 </head>
 <body>
+  <div id="cursorLight"></div>
   <canvas id="stars"></canvas>
 
   <div class="container" id="panel">
@@ -169,6 +186,12 @@
   </div>
 
   <script>
+    const cursorLight = document.getElementById("cursorLight");
+document.addEventListener("mousemove", (e) => {
+  cursorLight.style.left = `${e.clientX}px`;
+  cursorLight.style.top = `${e.clientY}px`;
+});
+
     /* === 星空背景 === */
     const canvas = document.getElementById("stars");
     const ctx = canvas.getContext("2d");
