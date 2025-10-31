@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <title>3-6 memo V2</title>
   <style>
-    /* === リセット === */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -39,7 +38,6 @@
       flex-direction: column;
     }
 
-    /* === 星空キャンバス === */
     #stars {
       position: fixed;
       top: 0;
@@ -49,7 +47,6 @@
       z-index: -1;
     }
 
-    /* === パネル === */
     .container {
       opacity: 0;
       transform: translateY(30px);
@@ -192,7 +189,6 @@ document.addEventListener("mousemove", (e) => {
   cursorLight.style.top = `${e.clientY}px`;
 });
 
-    /* === 星空背景 === */
     const canvas = document.getElementById("stars");
     const ctx = canvas.getContext("2d");
     let stars = [];
@@ -245,13 +241,9 @@ document.addEventListener("mousemove", (e) => {
 
     initStars();
     animateStars();
-
-    /* === フェードインアニメーション === */
     window.addEventListener("load", () => {
       document.getElementById("panel").classList.add("show");
     });
-
-    /* === メモ管理 === */
     const memoInput = document.getElementById("memoInput");
     const saveBtn = document.getElementById("saveBtn");
     const memoList = document.getElementById("memoList");
@@ -290,7 +282,6 @@ document.addEventListener("mousemove", (e) => {
     saveBtn.addEventListener("click", saveMemo);
     window.addEventListener("load", loadMemos);
 
-    /* === 管理者共有情報 === */
     const sharedText = document.getElementById('sharedText');
     const sharedInfoData = "3-6 memoがwebサイトになって帰ってきました！！";
     sharedText.textContent = sharedInfoData;
