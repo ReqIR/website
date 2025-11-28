@@ -1,0 +1,13 @@
+<h1>管理者画面</h1>
+<table border="1">
+  <tr><th>ID</th><th>ユーザー名</th><th>Email</th><th>Admin</th><th>操作</th></tr>
+  <% users.forEach(u => { %>
+  <tr>
+    <td><%= u.id %></td>
+    <td><%= u.username %></td>
+    <td><%= u.email %></td>
+    <td><%= u.admin %></td>
+    <td><a href="/admin/delete/<%= u.id %>">削除</a></td>
+  </tr>
+  <% }) %>
+</table>
